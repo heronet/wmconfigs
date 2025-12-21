@@ -8,6 +8,7 @@
     "modules-left": [
         "hyprland/workspaces",
         "cpu",
+        "custom/gpu",
         "memory",
         "temperature"
     ],
@@ -34,9 +35,9 @@
             "3": "",      // Code (VS Code)
             "4": "",      // Files
             "5": "",      // Music/Media
-	    "active": ""
+            "active": ""
         },
-	"persistent-workspaces": {
+	      "persistent-workspaces": {
             "*": 5 // This means "Show 5 empty workspaces on every monitor"
         }
     },
@@ -55,14 +56,14 @@
     },
     
     "memory": {
-        "format": " {}%",
+        "format": " {}%",
         "tooltip": true
     },
     
     "temperature": {
         "critical-threshold": 80,
         "format": "{icon} {temperatureC}°C",
-	"format-icons": ["", "", ""]
+	      "format-icons": ["", "", ""]
     },
     
     "backlight": {
@@ -83,7 +84,7 @@
     },
 
     "network": {
-        "format-wifi": "  {essid}",
+        "format-wifi": "  {essid} {signalStrength}%",
         "format-ethernet": "  {ipaddr}",
         "format-linked": "  {ifname} (No IP)",
         "format-disconnected": "⚠  Disconnected",
@@ -123,10 +124,17 @@
     "tray": {
         "spacing": 10
     },
-    
+
     "custom/power": {
         "format": "",
         "tooltip": false,
         "on-click": "wlogout"
-    }
+    },
+
+    "custom/gpu": {
+        "exec": "cat /sys/class/drm/card1/device/gpu_busy_percent",
+        "format": "󰢮 {}%",
+        "interval": 2,
+        "tooltip": false
+    },
 }

@@ -16,6 +16,7 @@ window#waybar {
 #bluetooth,
 #network,
 #cpu,
+#custom-gpu,
 #memory,
 #temperature,
 #backlight,
@@ -47,6 +48,15 @@ window#waybar {
     border-radius: 0;
     margin-left: -1px;
     text-shadow: 0 0 4px #8b5cf6;
+}
+
+#custom-gpu {
+    background-color: rgba(30, 5, 40, 0.9);
+    color: #c77dff;
+    border-color: #c77dff;
+    border-radius: 0;
+    margin-left: -1px;
+    text-shadow: 0 0 4px #c77dff;
 }
 
 #memory {
@@ -110,9 +120,10 @@ window#waybar {
 
 #workspaces button.focused,
 #workspaces button.active {
-    background-color: rgba(255, 51, 102, 0.3);
-    color: #ff3366;
-    border-color: #ff3366;
+    background-color: rgba(0, 255, 255, 0.3);  /* Cyan background */
+    color: #00ffff;  /* Cyan color */
+    border-color: #00ffff;
+    text-shadow: 0 0 6px #00ffff;  /* Cyan glow */
 }
 
 #workspaces button.urgent {
@@ -277,6 +288,7 @@ window#waybar {
 #bluetooth:hover { text-shadow: 0 0 8px #0095ff; }
 #network:hover { text-shadow: 0 0 8px #00ffff; }
 #cpu:hover { text-shadow: 0 0 8px #8b5cf6; }
+#custom-gpu:hover { text-shadow: 0 0 8px #c77dff; }
 #memory:hover { text-shadow: 0 0 8px #00ff88; }
 #temperature:hover { text-shadow: 0 0 8px #ffa500; }
 #backlight:hover { text-shadow: 0 0 8px #ffee00; }
