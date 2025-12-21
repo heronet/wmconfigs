@@ -1,0 +1,296 @@
+* {
+    font-family: "Symbols Nerd Font", "Font Awesome 6 Free Solid", "JetBrainsMono Nerd Font", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    min-height: 0;
+}
+
+window#waybar {
+    background-color: rgba(10, 10, 20, 0.85);
+}
+
+/* Base module styling with neon glow */
+#workspaces,
+#mode,
+#pulseaudio,
+#bluetooth,
+#network,
+#cpu,
+#memory,
+#temperature,
+#backlight,
+#battery,
+#clock,
+#tray,
+#custom-power {
+    padding: 0 16px;
+    margin: 4px 0;
+    border: 1px solid;
+    transition: all 0.3s ease;
+}
+
+/* Left modules group - Red for workspaces */
+#workspaces {
+    background-color: rgba(35, 0, 10, 0.9);
+    color: #ff3366;
+    border-color: #ff3366;
+    border-radius: 12px 0 0 12px;
+    margin-left: 8px;
+    padding-right: 10px;
+    text-shadow: 0 0 4px #ff3366;
+}
+
+#cpu {
+    background-color: rgba(20, 10, 35, 0.9);
+    color: #8b5cf6;
+    border-color: #8b5cf6;
+    border-radius: 0;
+    margin-left: -1px;
+    text-shadow: 0 0 4px #8b5cf6;
+}
+
+#memory {
+    background-color: rgba(10, 25, 20, 0.9);
+    color: #00ff88;
+    border-color: #00ff88;
+    border-radius: 0;
+    margin-left: -1px;
+    text-shadow: 0 0 4px #00ff88;
+}
+
+#temperature {
+    background-color: rgba(25, 20, 10, 0.9);
+    color: #ffa500;
+    border-color: #ffa500;
+    border-radius: 0 12px 12px 0;
+    margin-left: -1px;
+    text-shadow: 0 0 4px #ffa500;
+}
+
+#temperature.critical {
+    background-color: rgba(40, 0, 0, 0.9);
+    color: #ff0000;
+    border-color: #ff0000;
+    text-shadow: 0 0 6px #ff0000;
+    animation: critical-pulse 0.5s ease infinite alternate;
+}
+
+#mode {
+    background-color: rgba(20, 10, 30, 0.9);
+    color: #8b5cf6;
+    border-color: #8b5cf6;
+    padding-left: 20px;
+    box-shadow: 0 0 15px #8b5cf6;
+}
+
+#scratchpad {
+    background-color: rgba(10, 20, 30, 0.9);
+    color: #00ffff;
+    border-color: #00ffff;
+    padding: 0 16px;
+    box-shadow: 0 0 15px #00ffff;
+}
+
+/* Workspaces styling */
+#workspaces button {
+    padding: 0 8px;
+    margin: 3px 2px;
+    background-color: transparent;
+    color: #ff3366;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    text-shadow: 0 0 4px #ff3366;
+}
+
+#workspaces button:hover {
+    background-color: rgba(255, 51, 102, 0.2);
+    border-color: #ff3366;
+}
+
+#workspaces button.focused,
+#workspaces button.active {
+    background-color: rgba(255, 51, 102, 0.3);
+    color: #ff3366;
+    border-color: #ff3366;
+}
+
+#workspaces button.urgent {
+    background-color: rgba(255, 0, 0, 0.3);
+    color: #ff0000;
+    border-color: #ff0000;
+    text-shadow: 0 0 6px #ff0000;
+    animation: urgent-blink 0.8s ease infinite alternate;
+}
+
+@keyframes urgent-blink {
+    from { opacity: 1; }
+    to { opacity: 0.5; }
+}
+
+/* Center module - Clock with cyan neon */
+#clock {
+    background-color: rgba(0, 20, 30, 0.9);
+    color: #00ffff;
+    border-color: #00ffff;
+    border-radius: 12px;
+    font-weight: 700;
+    padding: 0 20px;
+    text-shadow: 0 0 5px #00ffff;
+}
+
+@keyframes critical-pulse {
+    from { 
+        text-shadow: 0 0 6px #ff0000;
+    }
+    to { 
+        text-shadow: 0 0 10px #ff0000;
+    }
+}
+
+/* Right modules - No background glow, text-shadow only */
+#pulseaudio {
+    background-color: rgba(20, 10, 35, 0.9);
+    color: #8b5cf6;
+    border-color: #8b5cf6;
+    border-radius: 12px 0 0 12px;
+    text-shadow: 0 0 4px #8b5cf6;
+}
+
+#bluetooth {
+    background-color: rgba(10, 15, 40, 0.9);
+    color: #0095ff;
+    border-color: #0095ff;
+    border-radius: 0;
+    margin-left: -1px;
+    text-shadow: 0 0 4px #0095ff;
+}
+
+#network {
+    background-color: rgba(0, 20, 30, 0.9);
+    color: #00ffff;
+    border-color: #00ffff;
+    border-radius: 0;
+    margin-left: -1px;
+    text-shadow: 0 0 4px #00ffff;
+}
+
+#backlight {
+    background-color: rgba(30, 30, 10, 0.9);
+    color: #ffee00;
+    border-color: #ffee00;
+    border-radius: 0;
+    margin-left: -1px;
+    text-shadow: 0 0 4px #ffee00;
+}
+
+#battery {
+    background-color: rgba(10, 30, 15, 0.9);
+    color: #00ff88;
+    border-color: #00ff88;
+    border-radius: 0;
+    margin-left: -1px;
+    text-shadow: 0 0 4px #00ff88;
+}
+
+#battery.charging {
+    color: #00ffff;
+    border-color: #00ffff;
+    text-shadow: 0 0 5px #00ffff;
+    animation: charging-pulse 2s ease infinite alternate;
+}
+
+@keyframes charging-pulse {
+    from { text-shadow: 0 0 5px #00ffff; }
+    to { text-shadow: 0 0 8px #00ffff; }
+}
+
+#battery.warning:not(.charging) {
+    background-color: rgba(40, 25, 0, 0.9);
+    color: #ffa500;
+    border-color: #ffa500;
+    text-shadow: 0 0 4px #ffa500;
+}
+
+#battery.critical:not(.charging) {
+    background-color: rgba(40, 0, 0, 0.9);
+    color: #ff0000;
+    border-color: #ff0000;
+    text-shadow: 0 0 6px #ff0000;
+    animation: critical-pulse-battery 0.5s ease infinite alternate;
+}
+
+@keyframes critical-pulse-battery {
+    from { 
+        text-shadow: 0 0 6px #ff0000;
+    }
+    to { 
+        text-shadow: 0 0 10px #ff0000;
+    }
+}
+
+#tray {
+    background-color: rgba(20, 10, 35, 0.9);
+    color: #8b5cf6;
+    border-color: #8b5cf6;
+    border-radius: 0;
+    margin-left: -1px;
+    text-shadow: 0 0 4px #8b5cf6;
+}
+
+#tray > .passive {
+    opacity: 0.6;
+}
+
+#tray > .needs-attention {
+    opacity: 1;
+    background-color: rgba(255, 0, 0, 0.3);
+    animation: attention-blink 1s ease infinite alternate;
+}
+
+@keyframes attention-blink {
+    from { opacity: 1; }
+    to { opacity: 0.3; }
+}
+
+#custom-power {
+    background-color: rgba(50, 0, 0, 0.9);
+    color: #ff0044;
+    border-color: #ff0044;
+    border-radius: 0 12px 12px 0;
+    margin-right: 8px;
+    margin-left: -1px;
+    padding-left: 20px;
+    font-size: 16px;
+    text-shadow: 0 0 6px #ff0044;
+}
+
+#custom-power:hover {
+    background-color: rgba(70, 0, 0, 0.95);
+    text-shadow: 0 0 10px #ff0044;
+    color: #ff3366;
+    border-color: #ff3366;
+}
+
+/* Hover effects - Enhanced text glow only */
+#pulseaudio:hover { text-shadow: 0 0 8px #8b5cf6; }
+#bluetooth:hover { text-shadow: 0 0 8px #0095ff; }
+#network:hover { text-shadow: 0 0 8px #00ffff; }
+#cpu:hover { text-shadow: 0 0 8px #8b5cf6; }
+#memory:hover { text-shadow: 0 0 8px #00ff88; }
+#temperature:hover { text-shadow: 0 0 8px #ffa500; }
+#backlight:hover { text-shadow: 0 0 8px #ffee00; }
+#battery:hover { text-shadow: 0 0 8px #00ff88; }
+
+/* Tooltip styling - Cyberpunk theme */
+tooltip {
+    background-color: rgba(10, 10, 20, 0.95);
+    color: #00ffff;
+    border-radius: 8px;
+    border: 1px solid #00ffff;
+}
+
+tooltip label {
+    color: #00ffff;
+    text-shadow: 0 0 4px #00ffff;
+}

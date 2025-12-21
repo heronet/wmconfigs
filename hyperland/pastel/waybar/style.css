@@ -1,0 +1,204 @@
+* {
+    font-family: "Symbols Nerd Font", "Font Awesome 6 Free Solid", "JetBrainsMono Nerd Font", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    min-height: 0;
+}
+
+window#waybar {
+    background-color: transparent;
+}
+
+/* Powerline separator characters */
+#workspaces,
+#mode,
+#pulseaudio,
+#bluetooth,
+#network,
+#cpu,
+#memory,
+#temperature,
+#backlight,
+#battery,
+#clock,
+#tray,
+#custom-power {
+    padding: 0 16px;
+    margin: 4px 0;
+}
+
+/* Left modules with powerline */
+#workspaces {
+    background-color: #c9b8f5;
+    color: #2e2e3e;
+    border-radius: 12px 0 0 12px;
+    margin-left: 8px;
+    padding-right: 10px;
+}
+
+#mode {
+    background-color: #f5b8d0;
+    color: #2e2e3e;
+    padding-left: 20px;
+}
+
+#scratchpad {
+    background-color: #b8d0f5;
+    color: #2e2e3e;
+    padding: 0 16px;
+}
+
+/* Workspaces styling */
+#workspaces button {
+    padding: 0 8px;
+    margin: 3px 0;
+    background-color: transparent;
+    color: #2e2e3e;
+    border: none;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+#workspaces button:hover {
+    box-shadow: none;
+}
+
+#workspaces button.focused,
+#workspaces button.active {
+    color: #1a1a2e;
+}
+
+#workspaces button.urgent {
+    background-color: #f5b8b8;
+    color: #8b0000;
+}
+
+/* Center module - Clock */
+#clock {
+    background-color: #f5e6d3;
+    color: #2e2e3e;
+    border-radius: 12px;
+    font-weight: 700;
+    padding: 0 20px;
+}
+
+/* Right modules with powerline effect */
+#pulseaudio {
+    background-color: #b8f5d0;
+    color: #2e2e3e;
+    border-radius: 12px 0 0 12px;
+}
+
+#bluetooth {
+    background-color: #d0b8f5;
+    color: #2e2e3e;
+}
+
+#network {
+    background-color: #b8e6f5;
+    color: #2e2e3e;
+}
+
+#cpu {
+    background-color: #89dceb;
+    color: #2e2e3e;
+}
+
+#memory {
+    background-color: #f5b8e6;
+    color: #2e2e3e;
+}
+
+#temperature {
+    background-color: #f5d0b8;
+    color: #2e2e3e;
+    border-radius: 0 12px 12px 0;
+}
+
+#temperature.critical {
+    background-color: #f5b8b8;
+    color: #8b0000;
+    animation: blink 0.5s linear infinite;
+}
+
+#backlight {
+    background-color: #f5f5b8;
+    color: #2e2e3e;
+}
+
+#battery {
+    background-color: #d0f5b8;
+    color: #2e2e3e;
+}
+
+#battery.charging {
+    background-color: #b8f5e6;
+    color: #2e2e3e;
+}
+
+#battery.warning:not(.charging) {
+    background-color: #f5d0b8;
+    color: #8b4513;
+}
+
+#battery.critical:not(.charging) {
+    background-color: #f5b8b8;
+    color: #8b0000;
+    animation: blink 0.5s linear infinite;
+}
+
+@keyframes blink {
+    to {
+        background-color: #ffffff;
+    }
+}
+
+#tray {
+    background-color: #e6b8f5;
+    color: #2e2e3e;
+}
+
+#tray > .passive {
+    opacity: 0.7;
+}
+
+#tray > .needs-attention {
+    opacity: 1;
+    background-color: #f5b8b8;
+}
+
+#custom-power {
+    background-color: #f5b8c9;
+    color: #8b0000;
+    border-radius: 0 12px 12px 0;
+    margin-right: 8px;
+    padding-left: 20px;
+    font-size: 16px;
+}
+
+#custom-power:hover {
+    background-color: #f5a0b0;
+}
+
+/* Hover effects */
+#pulseaudio:hover,
+#network:hover,
+#cpu:hover,
+#memory:hover,
+#temperature:hover,
+#backlight:hover,
+#battery:hover {
+    opacity: 0.85;
+}
+
+/* Tooltip styling */
+tooltip {
+    background-color: #2e2e3e;
+    color: #f5f5f5;
+    border-radius: 8px;
+    border: 2px solid #c9b8f5;
+}
+
+tooltip label {
+    color: #f5f5f5;
+}

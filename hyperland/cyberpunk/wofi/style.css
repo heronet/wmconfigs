@@ -1,0 +1,35 @@
+/* BACKGROUND */
+window {
+    margin: 0px;
+    border: 2px solid #ff0055; /* Neon Pink Border */
+    background-color: #000000; /* Pure Black */
+    border-radius: 16px;
+    font-family: "JetBrainsMono Nerd Font", sans-serif;
+    font-size: 16px;
+}
+
+/* SEARCH BAR */
+#input {
+    margin: 10px;
+    padding: 12px;
+    border-radius: 10px;
+    border: 2px solid #00d9ff; /* Cyan Border */
+    background-color: #121212;
+    color: #ffffff;
+    font-size: 20px;
+}
+
+/* ENTRIES */
+#entry {
+    margin: 5px 10px;
+    padding: 10px;
+    border-radius: 8px;
+    color: #ffffff;
+}
+
+/* SELECTED ITEM */
+#entry:selected {
+    background-color: #ff0055; /* Neon Pink Fill */
+    color: #ffffff;
+    font-weight: bold;
+}
